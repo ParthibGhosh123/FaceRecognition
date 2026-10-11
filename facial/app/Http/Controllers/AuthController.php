@@ -82,7 +82,7 @@ class AuthController extends Controller
         ])->save();
 
         if ($user->hasRole('super_admin')) {
-            return redirect()->intended('/admin/dashboard');
+            return redirect()->intended($user->hasRole('super_admin') ? route('superadmin.users.index') : url('/'));
         }
 
         return redirect()->intended('/dashboard');
