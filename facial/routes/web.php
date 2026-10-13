@@ -22,3 +22,6 @@ Route::middleware(['auth', 'role:super_admin'])->group(function () {
     Route::get('/admin/users/{uuid}', [UserController::class, 'getUser'])
         ->whereUuid('uuid')->name('superadmin.users.show');
 });
+use App\Http\Controllers\Controller2;
+
+Route::get('/test-policy', [Controller2::class, 'index']);
